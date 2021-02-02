@@ -20,7 +20,7 @@ touch setup.py
 # src/pkgNAME/subpkgNAME  subpackage
 mkdir bin src tests docs
 mkdir src/${pkgNAME}
-mkdir src/${subpkgNAME}
+mkdir src/${pkgNAME}/${subpkgNAME}
 
 # add initialization files
 touch src/${pkgNAME}/__init__.py
