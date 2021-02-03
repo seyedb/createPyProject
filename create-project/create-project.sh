@@ -37,12 +37,16 @@ source ${projNAME}-env/bin/activate
 
 # dependencies : 
 # here we grab dependencies using pipreqs
-#pip install pipreqs
-#pipreqs . --force  
+pip install pipreqs
+pipreqs . --force  
 pip install -r requirements.txt
 
 
-# generate a setup.py file
+# generate a setup.py file 
+# enter the following: 
+# version, license, your name (author) and email address (author_email), url (e.g. address to the github repo)
+# edit metadata in classifiers or add additional data (complete list can be found at: https://pypi.org/pypi?%3Aaction=list_classifiers) 
+# or add more arguments to setup()(complete list can be found at: https://setuptools.readthedocs.io/en/latest/references/keywords.html)
 echo -e "
 from setuptools import setup
 from setuptools import find_packages
@@ -53,8 +57,8 @@ with open("requirements.txt", "r") as fh:
     requirements = [line.strip() for line in fh]
 
 setup(
-    name='proj',
-    version='1.0.0',
+    name=${projNAME},
+    version='0.0.0',
     license='MIT',
     author='M. H. Bani-Hashemian',
     author_email='hossein.banihashemian@alumni.ethz.ch',
