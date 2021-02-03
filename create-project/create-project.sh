@@ -18,7 +18,7 @@ touch setup.py
 # src                     main source directory
 # src/pkgNAME             top level package 
 # src/pkgNAME/subpkgNAME  subpackage
-mkdir bin src tests docs
+mkdir bin src tests docs data
 mkdir src/${pkgNAME}
 mkdir src/${pkgNAME}/${subpkgNAME}
 
@@ -42,3 +42,39 @@ source ${projNAME}-env/bin/activate
 pip install -r requirements.txt
 
 
+# generate a setup.py file
+echo -e "
+from setuptools import setup
+from setuptools import find_packages
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+with open("requirements.txt", "r") as fh:
+    requirements = [line.strip() for line in fh]
+
+setup(
+    name='proj',
+    version='1.0.0',
+    license='MIT',
+    author='M. H. Bani-Hashemian',
+    author_email='hossein.banihashemian@alumni.ethz.ch',
+    description='A script to create a python project from scratch',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    url='https://github.com/seyedb/misc-projects',
+    package_dir={'': 'src'},
+    packages=find_packages('src'),
+    test_suite='tests',
+    classifiers=[
+        'Development Status :: 1 - Alpha',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ],
+    keywords=[],
+    python_requires='>=3.6',
+    install_requires=requirements
+)
+" > setup.py
