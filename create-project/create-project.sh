@@ -5,7 +5,9 @@
 topDIR=
 projNAME=
 pkgNAME=
-subpkgNAME=
+# Enter the name of subpackages in the following list. 
+# Example: subpkgLIST=('subpkg1' 'subpkg2')
+declare -a subpkgLIST=()
 
 mkdir -p ${topDIR}/${projNAME}
 cd ${topDIR}/${projNAME}
@@ -20,16 +22,24 @@ touch setup.py
 # src/pkgNAME/subpkgNAME  subpackage
 mkdir bin src tests docs data
 mkdir src/${pkgNAME}
-mkdir src/${pkgNAME}/${subpkgNAME}
+for subpkgNAME in ${subpkgLIST[@]};
+do
+	mkdir src/${pkgNAME}/${subpkgNAME}
+done
 
 # add initialization files
 touch src/${pkgNAME}/__init__.py
-touch src/${pkgNAME}/${subpkgNAME}/__init__.py
+for subpkgNAME in ${subpkgLIST[@]};
+do
+	touch src/${pkgNAME}/${subpkgNAME}/__init__.py
+done
 touch tests/__init__.py
-# add python files
-touch src/${pkgNAME}/${subpkgNAME}/${subpkgNAME}.py
-touch tests/test_${subpkgNAME}.py
-
+# Add python files
+for subpkgNAME in ${subpkgLIST[@]};
+do
+	touch src/${pkgNAME}/${subpkgNAME}/${subpkgNAME}.py
+	touch tests/test_${subpkgNAME}.py
+done
 
 # activate virtual environment
 python3 -m venv ${projNAME}-env
