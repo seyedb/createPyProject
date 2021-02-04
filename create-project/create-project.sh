@@ -41,7 +41,7 @@ do
 	touch tests/test_${subpkgNAME}.py
 done
 
-# activate virtual environment
+# Activate virtual environment
 python3 -m venv ${projNAME}-env
 source ${projNAME}-env/bin/activate
 
