@@ -35,6 +35,8 @@ do
 done
 touch tests/__init__.py
 # Add python files
+touch src/${pkgNAME}/${pkgNAME}.py
+touch tests/test_${pkgNAME}.py
 for subpkgNAME in ${subpkgLIST[@]};
 do
 	touch src/${pkgNAME}/${subpkgNAME}/${subpkgNAME}.py
