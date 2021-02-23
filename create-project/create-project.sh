@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-#Python interpreter path (conda)
+# Python interpreter path (e.g. conda)
 #pyInterPATH=
 topDIR=
 projNAME=
@@ -16,18 +16,18 @@ touch requirements.txt
 touch LICENSE
 touch setup.py
 
-# create directories: 
+# Create directories: 
 # src                     main source directory
 # src/pkgNAME             top level package 
 # src/pkgNAME/subpkgNAME  subpackage
-mkdir bin src tests docs data
+mkdir src tests docs data
 mkdir src/${pkgNAME}
 for subpkgNAME in ${subpkgLIST[@]};
 do
 	mkdir src/${pkgNAME}/${subpkgNAME}
 done
 
-# add initialization files
+# Add initialization files
 touch src/${pkgNAME}/__init__.py
 for subpkgNAME in ${subpkgLIST[@]};
 do
@@ -47,15 +47,15 @@ done
 python3 -m venv ${projNAME}-env
 source ${projNAME}-env/bin/activate
 
-# dependencies : 
+# Dependencies : 
 # here we grab dependencies using pipreqs
 pip install pipreqs
 pipreqs . --force  
 pip install -r requirements.txt
 
 
-# generate a setup.py file 
-# enter the following: 
+# Generate a setup.py file 
+# Enter the following: 
 # version, license, your name (author) and email address (author_email), url (e.g. address to the github repo)
 # edit metadata in classifiers or add additional data (complete list can be found at: https://pypi.org/pypi?%3Aaction=list_classifiers) 
 # or add more arguments to setup()(complete list can be found at: https://setuptools.readthedocs.io/en/latest/references/keywords.html)
