@@ -1,4 +1,8 @@
 #!/bin/bash -e
+#
+#title        : create-project.sh
+#description  : script to create a skeleton python project
+#==============================================================================
 
 # Python interpreter path (e.g. conda)
 #pyInterPATH=
