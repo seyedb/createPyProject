@@ -1,3 +1,3 @@
 About
 -----
-A bash script to set up a skeleton Python project (venv, project structure).
+A bash script to set up a skeleton Python project (venv, project structure, etc.).
