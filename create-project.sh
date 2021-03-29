@@ -1,8 +1,8 @@
 #!/bin/bash -e
 #
-# description: script to create a skeleton python project
-# author: M. H. Bani-Hashemian
-#==============================================================================
+# Description: Script to create a skeleton python project 
+# Author:      M. H. Bani-Hashemian
+# ==============================================================================
 
 # Python interpreter path (e.g. conda)
 #pyInterPATH=
@@ -78,10 +78,10 @@ setup(
     license='MIT',
     author='M. H. Bani-Hashemian',
     author_email='hossein.banihashemian@alumni.ethz.ch',
-    description='A script to create a python project from scratch',
+    description='A script to create a python project from scratch.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/seyedb/misc-projects',
+    url='https://github.com/seyedb/createPyProject',
     package_dir={'': 'src'},
     packages=find_packages('src'),
     test_suite='tests',
